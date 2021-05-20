@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Show</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add a New Show</h1>
+        <button><a href="/dashboard">Dashboard</a></button>
+        <button><a href="/logout">Logout</a></button>
+        <div>
+        <form action="/show/create" method = "post">
+        <p>Title: <input name="title" type="text">
+        <p>Network: <input name="network"></p>
+        <p>Release Date: <input type="date" name="release_date" id="">
+        <p>Description: <input name="description"></p>
+        
+        
+        </p>
+        <button>Create</button>
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </form>
+        </div>
+    </div>
+    
+</body>
+</html>

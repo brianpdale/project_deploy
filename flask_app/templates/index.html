@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login and Registration</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Login and Registration</h1>
+            <div class="container">
+            <div class="login">
+                <h1>Register Here!</h1>
+                    <div>
+
+                        <form action = "/register" method = "post">
+
+                            <label for="first_name">First Name:</label>
+                            <br/>
+
+                            <input type="text" id="first_name" name="first_name">
+                            <br/>
+                        
+                            <label for="last_name">Last Name:</label>
+                            <br/>
+                            <input type="text" id="last_name" name="last_name">
+                            <br/>
+                            
+                            <label for="email">Email:</label>
+                            <br/>
+                            <input type="text" id="email" name="email">
+                            <br/>
+
+                            <label for="password">Password</label>
+                            <br/>
+                            <input type="password" id="password" name="password">
+                            <br/>
+
+                            <label for="password_confirm">Confirm Password:</label>
+                            <br/>
+                            <input type="password" id="confirm_password" name="confirm_password">
+                            <br/>
+                            <br/>
+                            <button>Register!</button>
+                            <br/>
+                        </form>
+            </div>
+            <div class="registration">
+                        <h1>Login Here!</h1>
+
+                        <form action = "/login" method = "post">
+                            <label>Email:</label>
+                            <br/>
+                            <input type="email" id="login_email" name="email">
+                            <br/>
+
+                            <label>Password:</lebel>
+                            <br/>
+                            <input id="login_password" type = "password" name= "password">
+                            <br/>
+                            <br/>
+                            <button>Login!</button>
+                            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                                {% if messages %}                            <!-- check if there are any messages -->
+                                    {% for message in messages %}            <!-- loop through the messages -->
+                                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </form>
+            </div>
+            </div>   
+    </body>
+</html>
